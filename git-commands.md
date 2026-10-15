@@ -88,3 +88,20 @@
 ## Summary
 These commands cover Git installation, configuration, repository initialization, file creation, and repository inspection.
 
+
+## 4. Staging and Inspecting Changes
+
+### Stage a File
+- **Command:** `git add`
+- **What it does:** Adds file changes to the staging area.
+- **Example:** `git add git-commands.md`
+
+### View Unstaged Changes
+- **Command:** `git diff`
+- **What it does:** Shows changes in tracked files that are not staged.
+- **Example:** `git diff`
+
+### View Staged Changes
+- **Command:** `git diff --cached`
+- **What it does:** Shows changes staged for the next commit.
+- **Example:** `git diff --cached`
