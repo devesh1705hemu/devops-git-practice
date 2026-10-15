@@ -220,3 +220,35 @@ git status
 ### Key Learning
 Branches allow developers to work on separate features without immediately affecting the main codebase. Changes become part of `main` when they are merged into it.
 
+
+## Task 4: Pull from GitHub
+
+### 1. Fetch Remote Changes
+```bash
+git fetch origin
+```
+
+### 2. View Remote Commits Not Yet on Local Main
+```bash
+git log --oneline main..origin/main
+```
+
+### 3. Pull Changes into Main
+```bash
+git switch main
+git pull origin main
+```
+
+### 4. Verify the File
+```bash
+git status
+tail -n 10 git-commands.md
+```
+
+### Difference Between Git Fetch and Git Pull
+
+- `git fetch` downloads updates from a remote repository without integrating them into the current local branch.
+- `git pull` fetches remote updates and integrates them into the current branch, typically through a fast-forward or merge.
+
+Use `git fetch` when you want to inspect remote changes before integrating them. Use `git pull` when you are ready to integrate the remote changes.
+
