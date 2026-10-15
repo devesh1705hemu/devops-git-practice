@@ -105,3 +105,25 @@ These commands cover Git installation, configuration, repository initialization,
 - **Command:** `git diff --cached`
 - **What it does:** Shows changes staged for the next commit.
 - **Example:** `git diff --cached`
+
+## 5. Commits and History
+
+### Create a Commit
+- **Command:** `git commit -m`
+- **What it does:** Saves staged changes as a new commit.
+- **Example:** `git commit -m "Update Git reference"`
+
+### View Commit History
+- **Command:** `git log`
+- **What it does:** Displays detailed commit history.
+- **Example:** `git log`
+
+### View Compact History
+- **Command:** `git log --oneline`
+- **What it does:** Displays each commit on a single line.
+- **Example:** `git log --oneline`
+
+### Inspect the Latest Commit
+- **Command:** `git show`
+- **What it does:** Displays details and changes from a commit.
+- **Example:** `git show HEAD`
