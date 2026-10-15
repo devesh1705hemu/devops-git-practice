@@ -149,3 +149,69 @@ These commands cover Git installation, configuration, repository initialization,
 - **Command:** `git remote -v`
 - **What it does:** Lists configured remote repositories and their URLs.
 - **Example:** `git remote -v`
+
+
+## Git Branching Commands
+
+### 1. List Branches
+```bash
+git branch
+git branch -a
+```
+
+### 2. Create a Branch
+```bash
+git branch feature-1
+```
+
+### 3. Switch Branches
+```bash
+git switch feature-1
+```
+
+### 4. Create and Switch in One Command
+```bash
+git switch -c feature-2
+```
+
+### 5. Using Git Checkout
+```bash
+git checkout feature-1
+git checkout -b feature-3
+```
+
+### 6. Create a File and Commit on a Feature Branch
+```bash
+git switch feature-1
+echo "Feature-1 test" > feature-1.txt
+git add feature-1.txt
+git commit -m "Add feature-1 test file"
+```
+
+### 7. Compare Branch Histories
+```bash
+git log --oneline main
+git log --oneline feature-1
+git diff main..feature-1
+```
+
+### 8. Compare Files Between Branches
+```bash
+git ls-tree -r --name-only main
+git ls-tree -r --name-only feature-1
+```
+
+### 9. Delete a Branch
+```bash
+git branch -d feature-2
+```
+
+### 10. Check the Current Branch and Status
+```bash
+git branch
+git status
+```
+
+### Key Learning
+Branches allow developers to work on separate features without immediately affecting the main codebase. Changes become part of `main` when they are merged into it.
+
