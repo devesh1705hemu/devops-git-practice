@@ -127,3 +127,25 @@ These commands cover Git installation, configuration, repository initialization,
 - **Command:** `git show`
 - **What it does:** Displays details and changes from a commit.
 - **Example:** `git show HEAD`
+
+## 6. Branches and Repository Information
+
+### List Local Branches
+- **Command:** `git branch`
+- **What it does:** Lists local branches.
+- **Example:** `git branch`
+
+### Create a Branch
+- **Command:** `git branch <branch-name>`
+- **What it does:** Creates a new branch without switching to it.
+- **Example:** `git branch feature/docs`
+
+### Show Repository Root
+- **Command:** `git rev-parse --show-toplevel`
+- **What it does:** Displays the root path of the current repository.
+- **Example:** `git rev-parse --show-toplevel`
+
+### View Remote Repositories
+- **Command:** `git remote -v`
+- **What it does:** Lists configured remote repositories and their URLs.
+- **Example:** `git remote -v`
