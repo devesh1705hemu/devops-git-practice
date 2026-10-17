@@ -1,0 +1,5 @@
+User profile
+Name: User
+Email: user@example.com
+Profile settings
+Profile footer
