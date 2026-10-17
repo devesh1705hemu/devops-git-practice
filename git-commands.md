@@ -1,249 +1,84 @@
-# Git Commands Reference
 
-## 1. Setup & Config
+# Git Commands Cheat Sheet
 
-### Check Git Version
-- **Command:** `git --version`
-- **What it does:** Displays the installed Git version.
-- **Example:** `git --version`
+## 1. Git Merge
 
-### Configure Git Username
-- **Command:** `git config --global user.name`
-- **What it does:** Sets the name recorded as the author of your commits.
-- **Example:** `git config --global user.name "Devesh Arya"`
+| Command | Use |
+|---|---|
+| `git switch main` | Switch to the main branch. |
+| `git switch -c feature-login` | Create and switch to a new feature branch. |
+| `git merge feature-login` | Merge the feature branch into the current branch. |
+| `git merge --no-ff feature-login` | Merge while creating a merge commit, even when fast-forward is possible. |
+| `git merge --squash feature-profile` | Combine feature branch changes into the working tree without creating a merge commit. |
+| `git merge --abort` | Abort an in-progress merge and return to the pre-merge state. |
+| `git status` | Check the current repository state and conflicts. |
+| `git log --oneline --graph --all` | View commit history as a graph across branches. |
+>>>>>>> 42dbccc (modified files)
 
-### Configure Git Email
-- **Command:** `git config --global user.email`
-- **What it does:** Sets the email address recorded in your commits.
-- **Example:** `git config --global user.email "your-email@example.com"`
+## 2. Git Rebase
 
-### View Git Configuration
-- **Command:** `git config --list`
-- **What it does:** Displays Git configuration settings.
-- **Example:** `git config --list`
+| Command | Use |
+|---|---|
+| `git rebase main` | Replay the current branch commits on top of main. |
+| `git rebase --continue` | Continue the rebase after resolving conflicts and staging changes. |
+| `git rebase --abort` | Cancel the rebase and return to the original branch state. |
+| `git rebase --skip` | Skip the current commit during a rebase. |
+| `git log --oneline --graph --all` | Compare commit history across branches. |
 
+## 3. Squash and Commit History
 
+| Command | Use |
+|---|---|
+| `git merge --squash feature-profile` | Combine all changes from a feature branch into one pending change set. |
+| `git commit -m "Add user profile feature"` | Save staged changes as a commit with a message. |
+| `git merge --no-ff feature-settings` | Preserve a separate merge commit for the feature branch. |
+| `git log --oneline` | Display a compact commit history. |
+| `git log --oneline --graph --all` | Visualize branches and merge history. |
 
-## 2. Basic Workflow
+## 4. Git Stash
 
-### Create a Directory
-- **Command:** `mkdir`
-- **What it does:** Creates a new directory.
-- **Example:** `mkdir devops-git-practice`
+| Command | Use |
+|---|---|
+| `git stash` | Temporarily save tracked-file changes and clean the working tree. |
+| `git stash push -m "WIP: dashboard"` | Save changes with a descriptive stash message. |
+| `git stash push -u -m "WIP: dashboard"` | Stash tracked and untracked files with a message. |
+| `git stash list` | List all saved stashes. |
+| `git stash pop` | Apply the latest stash and remove it from the stash list if successful. |
+| `git stash apply` | Apply the latest stash while keeping it in the stash list. |
+| `git stash apply 'stash@{1}'` | Apply a specific stash without removing it. |
+| `git stash drop 'stash@{1}'` | Delete a specific stash entry. |
+| `git stash clear` | Delete all stash entries. |
+| `git stash show -p` | Display the changes saved in the latest stash. |
 
-### Change Directory
-- **Command:** `cd`
-- **What it does:** Changes the current working directory.
-- **Example:** `cd devops-git-practice`
+## 5. Git Cherry-Pick
 
-### Initialize a Repository
-- **Command:** `git init`
-- **What it does:** Initializes a Git repository in the current directory.
-- **Example:** `git init`
+| Command | Use |
+|---|---|
+| `git cherry-pick <commit-hash>` | Apply a specific commit to the current branch. |
+| `git cherry-pick --continue` | Continue cherry-picking after resolving conflicts and staging changes. |
+| `git cherry-pick --abort` | Cancel the current cherry-pick operation. |
+| `git cherry-pick --skip` | Skip the current commit during cherry-picking. |
+| `git show <commit-hash>` | Inspect the details and changes of a specific commit. |
+| `git log --oneline -5` | Display the five most recent commits. |
 
-### Create a File
-- **Command:** `touch`
-- **What it does:** Creates an empty file.
-- **Example:** `touch git-commands.md`
+## 6. Conflict Resolution and Inspection
 
-## 3. Viewing Changes
+| Command | Use |
+|---|---|
+| `git status` | Identify conflicted files and the current operation. |
+| `git diff` | View unstaged changes and conflict-related differences. |
+| `git diff --staged` | Review changes staged for the next commit. |
+| `git add <filename>` | Stage a resolved file after fixing conflicts. |
+| `git commit -m "Resolve merge conflict"` | Commit the staged resolution when Git requires a manual commit. |
+| `git switch <branch-name>` | Switch to an existing branch. |
+| `git branch` | List local branches and identify the current branch. |
 
-### Check Repository Status
-- **Command:** `git status`
-- **What it does:** Shows the current branch and file tracking status.
-- **Example:** `git status`
+## Important Notes
 
-### Display Current Directory
-- **Command:** `pwd`
-- **What it does:** Displays the current directory path.
-- **Example:** `pwd`
-
-### List All Files
-- **Command:** `ls -la`
-- **What it does:** Lists files, including hidden files and directories.
-- **Example:** `ls -la`
-
-### Explore Git Metadata
-- **Command:** `ls -la .git`
-- **What it does:** Lists the contents of Git's internal metadata directory.
-- **Example:** `ls -la .git`
-
-### Inspect HEAD
-- **Command:** `cat .git/HEAD`
-- **What it does:** Displays the reference to the current branch or commit.
-- **Example:** `cat .git/HEAD`
-
-### Display Current Branch
-- **Command:** `git branch --show-current`
-- **What it does:** Displays the current branch name.
-- **Example:** `git branch --show-current`
-
-### Display Repository Root
-- **Command:** `git rev-parse --show-toplevel`
-- **What it does:** Displays the root directory of the current repository.
-- **Example:** `git rev-parse --show-toplevel`
-
----
-
-## Summary
-These commands cover Git installation, configuration, repository initialization, file creation, and repository inspection.
-
-
-## 4. Staging and Inspecting Changes
-
-### Stage a File
-- **Command:** `git add`
-- **What it does:** Adds file changes to the staging area.
-- **Example:** `git add git-commands.md`
-
-### View Unstaged Changes
-- **Command:** `git diff`
-- **What it does:** Shows changes in tracked files that are not staged.
-- **Example:** `git diff`
-
-### View Staged Changes
-- **Command:** `git diff --cached`
-- **What it does:** Shows changes staged for the next commit.
-- **Example:** `git diff --cached`
-
-## 5. Commits and History
-
-### Create a Commit
-- **Command:** `git commit -m`
-- **What it does:** Saves staged changes as a new commit.
-- **Example:** `git commit -m "Update Git reference"`
-
-### View Commit History
-- **Command:** `git log`
-- **What it does:** Displays detailed commit history.
-- **Example:** `git log`
-
-### View Compact History
-- **Command:** `git log --oneline`
-- **What it does:** Displays each commit on a single line.
-- **Example:** `git log --oneline`
-
-### Inspect the Latest Commit
-- **Command:** `git show`
-- **What it does:** Displays details and changes from a commit.
-- **Example:** `git show HEAD`
-
-## 6. Branches and Repository Information
-
-### List Local Branches
-- **Command:** `git branch`
-- **What it does:** Lists local branches.
-- **Example:** `git branch`
-
-### Create a Branch
-- **Command:** `git branch <branch-name>`
-- **What it does:** Creates a new branch without switching to it.
-- **Example:** `git branch feature/docs`
-
-### Show Repository Root
-- **Command:** `git rev-parse --show-toplevel`
-- **What it does:** Displays the root path of the current repository.
-- **Example:** `git rev-parse --show-toplevel`
-
-### View Remote Repositories
-- **Command:** `git remote -v`
-- **What it does:** Lists configured remote repositories and their URLs.
-- **Example:** `git remote -v`
-
-
-## Git Branching Commands
-
-### 1. List Branches
-```bash
-git branch
-git branch -a
-```
-
-### 2. Create a Branch
-```bash
-git branch feature-1
-```
-
-### 3. Switch Branches
-```bash
-git switch feature-1
-```
-
-### 4. Create and Switch in One Command
-```bash
-git switch -c feature-2
-```
-
-### 5. Using Git Checkout
-```bash
-git checkout feature-1
-git checkout -b feature-3
-```
-
-### 6. Create a File and Commit on a Feature Branch
-```bash
-git switch feature-1
-echo "Feature-1 test" > feature-1.txt
-git add feature-1.txt
-git commit -m "Add feature-1 test file"
-```
-
-### 7. Compare Branch Histories
-```bash
-git log --oneline main
-git log --oneline feature-1
-git diff main..feature-1
-```
-
-### 8. Compare Files Between Branches
-```bash
-git ls-tree -r --name-only main
-git ls-tree -r --name-only feature-1
-```
-
-### 9. Delete a Branch
-```bash
-git branch -d feature-2
-```
-
-### 10. Check the Current Branch and Status
-```bash
-git branch
-git status
-```
-
-### Key Learning
-Branches allow developers to work on separate features without immediately affecting the main codebase. Changes become part of `main` when they are merged into it.
-
-
-## Task 4: Pull from GitHub
-
-### 1. Fetch Remote Changes
-```bash
-git fetch origin
-```
-
-### 2. View Remote Commits Not Yet on Local Main
-```bash
-git log --oneline main..origin/main
-```
-
-### 3. Pull Changes into Main
-```bash
-git switch main
-git pull origin main
-```
-
-### 4. Verify the File
-```bash
-git status
-tail -n 10 git-commands.md
-```
-
-### Difference Between Git Fetch and Git Pull
-
-- `git fetch` downloads updates from a remote repository without integrating them into the current local branch.
-- `git pull` fetches remote updates and integrates them into the current branch, typically through a fast-forward or merge.
-
-Use `git fetch` when you want to inspect remote changes before integrating them. Use `git pull` when you are ready to integrate the remote changes.
+- Run `git merge <branch-name>` from the branch that should receive the changes.
+- Rebase rewrites commit history. Avoid rebasing commits that others already depend on.
+- Use `git stash apply` when you want to keep the stash available.
+- Use `git stash pop` when you want to apply the stash and remove it if successful.
+- Cherry-pick is useful for moving a specific fix or commit between branches.
+- Always run `git status` after resolving conflicts to verify the repository state.
 
